@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-ink-950 text-zinc-100 font-sans antialiased;
+    /* Prevent iOS rubber-band over-scroll glow on the body */
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Honour the notch / home indicator on phones */
+  #root {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply mx-auto flex min-h-full w-full max-w-md flex-col;
+  }
+
+  /* Subtle textured backdrop reminiscent of a brushed-metal amp face */
+  .amp-bg {
+    background-image:
+      radial-gradient(120% 60% at 50% -10%, rgba(255, 92, 43, 0.12), transparent 60%),
+      radial-gradient(80% 50% at 100% 0%, rgba(43, 214, 255, 0.08), transparent 55%),
+      linear-gradient(180deg, #0d0d11 0%, #08080a 100%);
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/5 bg-ink-850/80 shadow-card backdrop-blur;
+  }
+
+  .btn {
+    @apply inline-flex select-none items-center justify-center gap-2 rounded-xl font-semibold
+      transition-all active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply btn bg-ember text-white shadow-ember hover:bg-ember-400;
+  }
+
+  .btn-ghost {
+    @apply btn bg-white/5 text-zinc-100 hover:bg-white/10;
+  }
+
+  .btn-outline {
+    @apply btn border border-white/10 bg-transparent text-zinc-200 hover:bg-white/5;
+  }
+
+  /* Pill chips used for key / bpm / tuning metadata */
+  .stat-chip {
+    @apply flex flex-col items-center rounded-xl border border-white/5 bg-ink-800/70 px-3 py-2;
+  }
+
+  .section-tag {
+    @apply rounded-md px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .shimmer-bg {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 25%,
+      rgba(255, 255, 255, 0.08) 37%,
+      rgba(255, 255, 255, 0.03) 63%
+    );
+    background-size: 200% 100%;
+  }
+}
