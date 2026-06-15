@@ -7,3 +7,5 @@ dist-ssr
 *.log
 .vite
 .claude/settings.local.json
+.firebase
+firebase-debug.log
