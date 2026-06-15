@@ -3,7 +3,7 @@ name: Deploy to Firebase Hosting
 # Auto-deploys the built site to Firebase Hosting on every push to main.
 # PRs get an ephemeral preview channel instead of touching production.
 #
-# One-time setup: add a repo secret named FIREBASE_SERVICE_ACCOUNT_RIFFSCRIBE
+# One-time setup: add a repo secret named FIREBASE_SERVICE_ACCOUNT_RIFFSCRIBE_499407
 # containing a Firebase service-account JSON key (see README / instructions).
 # The easiest way to create it is `firebase init hosting:github`.
 
@@ -36,7 +36,7 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RIFFSCRIBE }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RIFFSCRIBE_499407 }}
           channelId: live
           projectId: riffscribe-499407
 
@@ -45,5 +45,5 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RIFFSCRIBE }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RIFFSCRIBE_499407 }}
           projectId: riffscribe-499407
